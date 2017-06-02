@@ -1,0 +1,23 @@
+---
+# defaults file for quagga
+quagga_uid: quagga
+quagga_gid: quagga
+quagga_log_dir: /var/log/quagga
+quagga_use_syslog: yes
+quagga_conf: { }
+quagga_ipv4_vty_address: 127.0.0.1
+quagga_ipv6_vty_address: 127.0.0.1
+#
+# access-list
+quagga_access_list: { }
+#
+# ospf
+quagga_ospf_router_id: "{{ ansible_default_ipv4.address }}"
+quagga_interfaces:
+  - eth0
+#
+# ospfd
+quagga_do_ospfd: yes
+#
+# ospf6d
+quagga_do_ospf6d: yes
