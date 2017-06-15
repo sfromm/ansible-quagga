@@ -24,3 +24,5 @@ ZEBRA_OPTS="-A {{ quagga_ipv4_vty_address }}"
 #
 # Timer values can be adjusting by editing this line:
 WATCH_OPTS="-Az -b_ -r/sbin/service_%s_restart -s/sbin/service_%s_start -k/sbin/service_%s_stop"
+#
+QCONFDIR={{ quagga_conf_dir }}
