@@ -1,0 +1,4 @@
+# This file tells the quagga package which daemons to start.
+{% for item in quagga_conf %}
+{{ item }}=yes
+{% endfor %}

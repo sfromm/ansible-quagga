@@ -1,0 +1,12 @@
+---
+- name: install quagga
+  apt: name=quagga state=present
+
+- name: create quagga daemons config
+  template: >-
+    src=quagga.conf.j2
+    dest=/etc/quagga/daemons
+    owner=root
+    group=root
+    mode=0644
+    backup=yes
