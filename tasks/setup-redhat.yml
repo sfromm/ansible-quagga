@@ -1,6 +1,6 @@
 ---
 - name: install quagga
-  yum: name=quagga state=installed
+  yum: name=quagga state=present
 
 - name: create quagga sysconfig
   template: >-

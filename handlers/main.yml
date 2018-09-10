@@ -1,4 +1,9 @@
 ---
-- name: restart quagga
+- name: restart quagga (RedHat)
   service: name={{ item.key }} state=restarted
-  with_dict: quagga_conf
+  with_dict: "{{ quagga_conf }}"
+  when: ansible_os_family == "RedHat"
+
+- name: restart quagga (Debian)
+  service: name=quagga state=restarted
+  when: ansible_os_family == "Debian"

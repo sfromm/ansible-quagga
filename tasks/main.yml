@@ -2,6 +2,9 @@
 - include: setup-redhat.yml
   when: ansible_os_family == "RedHat"
 
+- include: setup-debian.yml
+  when: ansible_os_family == "Debian"
+
 - name: create quagga daemon configuration
   template: >-
     src=quagga.j2
@@ -11,11 +14,12 @@
     mode=0640
     backup=yes
   with_dict: "{{ quagga_conf }}"
-  notify: restart quagga
+  notify:
+    - restart quagga (RedHat)
+    - restart quagga (Debian)
 
-- name: enable and start zebra
-  service: name=zebra enabled=yes state=started
+- include: services-redhat.yml
+  when: ansible_os_family == "RedHat"
 
-- name: enable and start quagga services
-  service: name={{ item.key }} enabled=yes state=started
-  with_dict: "{{ quagga_conf }}"
+- include: services-debian.yml
+  when: ansible_os_family == "Debian"

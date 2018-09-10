@@ -1,0 +1,6 @@
+- name: enable and start zebra
+  service: name=zebra enabled=yes state=started
+
+- name: enable and start quagga services
+  service: name={{ item.key }} enabled=yes state=started
+  with_dict: "{{ quagga_conf }}"
