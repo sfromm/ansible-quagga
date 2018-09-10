@@ -22,3 +22,7 @@ quagga_do_ospfd: yes
 #
 # ospf6d
 quagga_do_ospf6d: yes
+
+quagga_vtysh_enable: yes
+quagga_watchquagga_enable: yes
+quagga_watchquagga_options: '--daemon'

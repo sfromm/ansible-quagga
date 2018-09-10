@@ -10,3 +10,12 @@
     group=root
     mode=0644
     backup=yes
+
+- name: create quagga debian.conf config
+  template: >-
+    src=debian.conf.j2
+    dest=/etc/quagga/debian.conf
+    owner=root
+    group=root
+    mode=0644
+    backup=yes
